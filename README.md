@@ -45,6 +45,29 @@ The “Archived_Bad_Data_Folder” is then sent to the client for rechecking.
 
 "Good_Data_Folder" is also deleted to save memory.
 
+## Data Insertion in Database:
+
+**Database Creation and connection-** Create a database with the given name passed. If the database is already created, open the connection to the database. 
+
+**Table creation in the database-** Table with the name - "Good_Data", is created in the database for inserting the files in the "Good_Data_Folder" based on given column names and datatype in the schema file. If the table is already present, then the new table is not created and new files are inserted in the already present table as we want training to be done on new as well as old training files. 
+
+**Insertion of files in the table-** All the files in the "Good_Data_Folder" are inserted in the above-created table. If any file has an invalid data type in any of the columns, the file is not loaded in the table and is moved to "Bad_Data_Folder".
+
+
+## Model Training 
+
+**Data Export from Db-** The data in a stored database is exported as a CSV file to be used for model training.
+
+**Data Pre-processing-**   
+- a) Check for null values in the columns. If present, impute the null values using the KNN imputer.
+- b) Check if any column has zero standard deviation, remove such columns as they don't give any information during model training.
+- 
+**Clustering-** KMeans algorithm is used to create clusters in the pre-processed data. The optimum number of clusters is selected by plotting the elbow plot, and for the dynamic selection of the number of clusters, we are using the "KneeLocator" function. The idea behind clustering is to implement different algorithms
+
+To train data in different clusters. The KMeans model is trained over pre-processed data and the model is saved for further use in prediction.
+
+**Model Selection-** After clusters are created, we find the best model for each cluster. We are using two algorithms, "Random Forest" and "XGBoost". For each cluster, both the algorithms are passed with the best parameters derived from Grid Search. We calculate the AUC scores for both models and select the model with the best score. Similarly, the model is selected for each cluster. All the models for every cluster are saved for use in prediction.
+
 
 
 
