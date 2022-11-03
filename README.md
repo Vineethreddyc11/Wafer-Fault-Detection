@@ -3,7 +3,7 @@
 Developed classification model to classify wafer sensors need to be replaced based on quality and increased productivity by 24%.
 
 
-##Architecture 
+## Architecture 
  
 <img width="1012" alt="Screen Shot 2022-11-03 at 11 02 50 AM" src="https://user-images.githubusercontent.com/68578215/199799978-b3b4547b-a3ee-4539-b426-3bce9e273524.png">
 
