@@ -75,4 +75,4 @@ To train data in different clusters. The KMeans model is trained over pre-proces
 
 
 
-## Functional Architecture
+
