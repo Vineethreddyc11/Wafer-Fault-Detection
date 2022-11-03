@@ -61,7 +61,8 @@ The “Archived_Bad_Data_Folder” is then sent to the client for rechecking.
 **Data Pre-processing-**   
 - a) Check for null values in the columns. If present, impute the null values using the KNN imputer.
 - b) Check if any column has zero standard deviation, remove such columns as they don't give any information during model training.
-- 
+
+
 **Clustering-** KMeans algorithm is used to create clusters in the pre-processed data. The optimum number of clusters is selected by plotting the elbow plot, and for the dynamic selection of the number of clusters, we are using the "KneeLocator" function. The idea behind clustering is to implement different algorithms
 
 To train data in different clusters. The KMeans model is trained over pre-processed data and the model is saved for further use in prediction.
